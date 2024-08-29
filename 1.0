@@ -1,0 +1,55 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = false, ConfigFolder = "ScriptWare", IntroEnabled = false})
+
+OrionLib:MakeNotification({
+	Name = "ScriptWare",
+	Content = "Logged In As "..Player.Name..",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+_G.Key = "KEY" 
+
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+  OrionLib:Destroy()
+  local Window = OrionLib:MakeWindow({Name = "ScriptWare", HidePremium = true, SaveConfig = true, ConfigFolder = "ScriptWare", IntroEnabled = false})
+end 
+
+
+function CorrectKeyNotification()
+  OrionLib:MakeNotification({
+	Name = "ScriptWare: Key System",
+	Content = "Valid Key System.",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+
+
+local Tab = Window:MakeTab({
+	Name = "Key System",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		_G.KeyInput = Value
+	end	  
+})
+
+
+Tab:AddButton({
+	Name = "Check Key",
+	Callback = function()
+      		if _G.KeyInput = _G.Key then
+      		MakeScriptHub()
+			CorrectKeyNotification()
+  	end    
+})
