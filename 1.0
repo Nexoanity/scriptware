@@ -53,3 +53,5 @@ Tab:AddButton({
 			CorrectKeyNotification()
   	end    
 })
+
+OrionLib:Init()
