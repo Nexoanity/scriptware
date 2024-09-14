@@ -1,57 +1,120 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Player = game.Players.LocalPlayer
-local Window = OrionLib:MakeWindow({Name = "Key System", HidePremium = true, SaveConfig = false, ConfigFolder = "ScriptWare", IntroEnabled = false})
+
+local Window = OrionLib:MakeWindow({Name = "ScriptWare", HidePremium = true, SaveConfig = false, ConfigFolder = "ScriptWare", IntroText = "Reality Scripts Presents"})
 
 OrionLib:MakeNotification({
-	Name = "ScriptWare",
-	Content = "Logged In As "..Player.Name..",
+	Name = "Started!",
+	Content = "Script Launched Successfully!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
 
-_G.Key = "KEY" 
-
-_G.KeyInput = "string"
-
-function MakeScriptHub()
-  OrionLib:Destroy()
-  local Window = OrionLib:MakeWindow({Name = "ScriptWare", HidePremium = true, SaveConfig = true, ConfigFolder = "ScriptWare", IntroEnabled = false})
-end 
-
-
-function CorrectKeyNotification()
-  OrionLib:MakeNotification({
-	Name = "ScriptWare: Key System",
-	Content = "Valid Key System.",
+OrionLib:MakeNotification({
+	Name = "Notice",
+	Content = "To close the script click E.",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-end
 
 
-local Tab = Window:MakeTab({
-	Name = "Key System",
+local sol = Window:MakeTab({
+	Name = "Sol's RNG",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-Tab:AddTextbox({
-	Name = "Enter Key",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		_G.KeyInput = Value
-	end	  
+sol:AddButton({
+	Name = "Close",
+	Callback = function()
+		OrionLib:Destroy()
+	end    
 })
 
-
-Tab:AddButton({
-	Name = "Check Key",
+sol:AddButton({
+	Name = "Erudite Hub(contains key system)",
 	Callback = function()
-      		if _G.KeyInput = _G.Key then
-      		MakeScriptHub()
-			CorrectKeyNotification()
+			print("Erudite Hub: Launching....")
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ThacG/EruditeHub/main/Sol's%20RNG/V2.69"))()
   	end    
 })
 
-OrionLib:Init()
+sol:AddButton({
+	Name = "HoHo Hub(contains key system)",
+	Callback = function()
+      		print("HoHo Hub: Launching....")
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+  	end    
+})
+
+local bf = Window:MakeTab({
+	Name = "Blox Fruits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+bf:AddButton({
+	Name = "W-Azure",
+	Callback = function()
+			print("w-azure: Launching....")
+      		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+  	end    
+})
+
+bf:AddButton({
+	Name = "W-Azure: Bounty Hunt",
+	Callback = function()
+			print("w-azure auto bounty: Launching....")
+      		getgenv().AutoLoad = true
+			getgenv().SpamSkill = false
+			getgenv().AutoUseRaceV3 = true
+			getgenv().AutoUseRacev4 = true
+			getgenv().SpamSkillOnRaceV4 = true
+      		getgenv().Invisible = true
+      		getgenv().InCombatNoReset = false
+      		getgenv().Team = "Pirates" -- Marines
+      		getgenv().AutoLoad = true
+      		getgenv().TweenSpeed = 300 -- 350 max or Get Tp Back
+       		getgenv().Setting = { -- Select Weapon, Self Explain
+        ["Melee"] = {["Enable"] = true,["Delay"] = 3,
+          ["Skills"] = {
+            ["Z"] = {["Enable"] = true,["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
+            [ "X"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+            ["C"] = {["Enable"] = true,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+            },
+        },
+        ["Blox Fruit"] = {["Enable"] = true, ["Delay"] = 4,
+            ["Skills"] = {
+                ["Z"] = {["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+                ["X"] = { ["Enable"] = true, ["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+                ["C"] = { ["Enable"] = true, ["HoldTime"] = 3,["TimeToNextSkill"] = 0, },
+                ["V"] = { ["Disable"] = true, ["HoldTime"] = 0,["TimeToNextSkill"] = 0,},
+                ["F"] = {["Disable"] = false,["HoldTime"] = 0, ["TimeToNextSkill"] = 0,},
+            },
+        },
+        ["Sword"] = { ["Enable"] = true, ["Delay"] = 2,
+            ["Skills"] = {
+                ["Z"] = {["Enable"] = true,  ["HoldTime"] = 0.5,["TimeToNextSkill"] = 0,},
+                ["X"] = {["Enable"] = true, ["HoldTime"] = 0.5, ["TimeToNextSkill"] = 0,},
+            },
+		}
+    }
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/vinhuchi/temp-repos/main/FreeAutoBounty.lua'))()
+  	end    
+})
+
+
+bf:AddButton({
+	Name = "Redz Hub",
+	Callback = function()
+      		print("HoHo Hub: Launching....")
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+  	end    
+})
+
+local creds = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+creds:AddLabel("Created By @nexoanity01 on discord!")
